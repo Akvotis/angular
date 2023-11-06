@@ -1,0 +1,53 @@
+<section class="profile">
+    <mat-card class="profile-card">
+        <mat-card-header class="profile-card-header">
+          <div mat-card-avatar class="profile-card-header__icon"></div>
+          <div class="profile-card-header-right">
+            <mat-card-title class="profile-card-header__title">Иван Иванов</mat-card-title>
+            <div class="profile-card-header-link">
+                <a class="profile-card-header-link__item" href="">
+                    <mat-icon aria-hidden="false" aria-label="Folder icon" fontIcon="folder"></mat-icon>
+                    Telegram
+                </a>
+                <a class="profile-card-header-link__item" href="">
+                    <mat-icon aria-hidden="false" aria-label="Folder icon" fontIcon="folder"></mat-icon>
+                    GitHub
+                </a>
+                <a class="profile-card-header-link__item" href="">
+                    <mat-icon aria-hidden="false" aria-label="Folder icon" fontIcon="folder"></mat-icon>
+                    Resume
+                </a>
+            </div>
+          </div>
+        </mat-card-header>
+
+        <form class="profile-form" [formGroup]="profileForm" (ngSubmit)="submitProfileChangeInfo()" (input)="saveValue()">
+            <fieldset class="profile-form-field">
+                <label for="tel" class="profile-form-label">Номер телефона</label>
+                <input 
+                    formControlName="tel"
+                    type="tel"
+                    id="tel"
+                    class="profile-form__input"
+                    placeholder="+7 (900) 000-00-00"
+                    [imask]="{mask: '+{7} (000) 000-00-00'}"
+                    [unmask]="true"
+                />
+                <p class="profile-form__error" *ngIf="this.profileForm.get('tel')?.invalid && this.profileForm.get('tel')?.touched">Неправильный номер</p>
+            </fieldset>
+            <fieldset class="profile-form-field">
+                <label for="email" class="profile-form-label">Email</label>
+                <input
+                    formControlName="email"
+                    type="email"
+                    id="email"
+                    class="profile-form__input"
+                    placeholder="email@gmail.com"
+                />
+
+                <p class="profile-form__error" *ngIf="this.profileForm.get('email')?.invalid && this.profileForm.get('email')?.touched">Неправильный емейл</p>
+            </fieldset>
+            <button class="profile-form__btn" [disabled]="profileForm.invalid" mat-flat-button color="primary" type="submit">Начать</button>
+        </form>
+    </mat-card>
+</section>

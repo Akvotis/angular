@@ -1,0 +1,119 @@
+.profile {
+    margin: 0 auto;
+
+    &-card {
+        box-shadow: none;
+        max-width: 450px;
+        margin: 0 auto;
+
+        @media (max-width: 620px) {
+            padding: 0 16px;
+        }
+
+        &-header {
+            padding: 16px 0;
+            align-items: center;
+            flex-wrap: wrap;
+            column-gap: 8px;
+            border-bottom: 1px solid #F2F2F2;
+
+            @media (max-width: 450px) {
+                flex-direction: column;
+                text-align: center;
+                row-gap: 4px;
+            }
+    
+            &__icon {
+                background-color: #D6E4F7;
+                margin-bottom: 0;
+                position: relative;
+                height: 80px;
+                width: 80px;
+    
+                &::after {
+                    content: "ИИ";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 28px;
+                    line-height: 100%;
+                }
+            }
+
+            &__title {
+                font-size: 24px;
+                line-height: 120%;
+            }
+
+            &-right {
+                display: flex;
+                flex-direction: column;
+                row-gap: 4px;
+            }
+
+            &-link {
+                display: flex;
+                align-items: center;
+                column-gap: 10px;
+
+                @media (max-width: 450px) {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+
+                &__item {
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    color: #989AFC;
+
+                    & .mat-icon {
+                        color: gray;
+                        font-size: 20px;
+                        line-height: 120%;
+                    }
+                }
+            }
+        }
+    }
+
+    &-form {
+        margin-top: 24px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 24px;
+
+        &-field {
+            outline: none;
+            border: none;
+            padding: 0;
+
+            display: flex;
+            flex-direction: column;
+            row-gap: 8px;
+        }
+
+        &__input {
+            padding: 12px 16px;
+            border-radius: 4px;
+            background-color: #F5F5F5;
+            border: 1px solid #DFDFDF;
+
+            &:focus-visible {
+                outline: none;
+            }
+        }
+
+        &__error {
+            margin: 0;
+            color: red;
+            font-size: 14px;
+            line-height: 110%;
+        }
+
+        &__btn {
+            width: fit-content;
+        }
+    }
+}
